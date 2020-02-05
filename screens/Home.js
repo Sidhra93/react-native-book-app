@@ -1,32 +1,26 @@
-import React from 'react'
-import { StyleSheet, View, Text, Button } from 'react-native'
+import React, { useState } from 'react'
+import { StyleSheet, View, Text, FlatList, TouchableOpacity } from 'react-native'
 import { globalStyles } from '../styles/global'
 
 export default function Home({ navigation }) {
-    const pressHandler = () => {
-        navigation.navigate('Review Details')
-        // navigation.push('Review Details')
-        // .push adds a screen to the stack
-
-    }
+    const [ reviews, setReviews ] = useState([
+        { title: 'It Ends With Us', rating: 5, body: 'written by Colleen Hoover', key: '1' },
+        { title: '180 Seconds', rating: 2, body: 'written by Jessica Park', key: '2' },
+        { title: 'Without Merit', rating: 3, body: 'written by Colleen Hoover', key: '3' }
+    ])
 
     return(
         <View style={ globalStyles.container }>
-            <Text style={ globalStyles.titleText }>Home Screen</Text>
-            <Button
-                title="Go To Review Details"
-                onPress={ pressHandler }
+            <FlatList
+                data={ reviews }
+                renderItem={ ({ item }) => (
+                    <TouchableOpacity
+                        onPress={ () => navigation.navigate('Review Details', item) }
+                    >
+                        <Text style={ globalStyles.titleText }>{ item.title }</Text>
+                    </TouchableOpacity>
+                ) }
             />
         </View>
     )
 }
-
-const styles = StyleSheet.create({
-    container: {
-        padding: 24
-    },
-    titleText: {
-        fontFamily: 'nunito-bold',
-        fontSize: 18
-    }
-})
