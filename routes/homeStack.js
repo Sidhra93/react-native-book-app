@@ -7,17 +7,24 @@ const screens = {
     Home: {
         screen: Home,
         navigationOptions: {
-            title: 'BookZone'
+            title: 'BookZone',
+            // headerStyle: { backgroundColor: '#eee' }
         }
     },
     BookDetails: {
         screen: BookDetails,
         navigationOptions: {
-            title: 'Book Details'
+            title: 'Book Details',
+            // headerStyle: { backgroundColor: '#eee' }
         }
     }
 }
 
-const HomeStack = createStackNavigator(screens)
+const HomeStack = createStackNavigator(screens, {
+    defaultNavigationOptions: {
+        headerTintColor: '#444',
+        headerStyle: { backgroundColor: '#eee' }
+    }
+})
 
 export default createAppContainer(HomeStack)
