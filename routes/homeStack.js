@@ -17,7 +17,10 @@ const screens = {
     BookDetails: {
         screen: BookDetails,
         navigationOptions: {
-            title: 'Book Details'
+            title: 'Book Details',
+            headerTitleStyle: {
+                fontWeight: 'bold'
+            }
         }
     }
 }
