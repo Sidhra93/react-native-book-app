@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Blank Template",
-    "slug": "gamezone",
+    "name": "bookzone",
+    "slug": "bookzone",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [

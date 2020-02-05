@@ -1,14 +1,20 @@
 import { createStackNavigator } from 'react-navigation-stack'
 import { createAppContainer } from 'react-navigation'
 import Home from '../screens/Home'
-import ReviewDetails from '../screens/ReviewDetails'
+import BookDetails from '../screens/BookDetails'
 
 const screens = {
     Home: {
-        screen: Home
+        screen: Home,
+        navigationOptions: {
+            title: 'BookZone'
+        }
     },
-    'Review Details': {
-        screen: ReviewDetails
+    BookDetails: {
+        screen: BookDetails,
+        navigationOptions: {
+            title: 'Book Details'
+        }
     }
 }
 
