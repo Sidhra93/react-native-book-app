@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View, Button, TextInput } from 'react-native'
 import { globalStyles } from '../styles/global'
+import FlatButton from '../shared/Button'
 import { Formik } from 'formik'
 import * as yup from 'yup'
 
@@ -59,7 +60,7 @@ export default function BookForm({ addBook }) {
                             onBlur={ formikProps.handleBlur('rating') }
                         />
                         <Text style={ globalStyles.errorText }>{ formikProps.touched.rating && formikProps.errors.rating }</Text>
-                        <Button title="Submit" color="maroon" onPress={ formikProps.handleSubmit } />
+                        <FlatButton textValue="submit" onPress={ formikProps.handleSubmit } />
                     </View>
                 ) }
             </Formik>
