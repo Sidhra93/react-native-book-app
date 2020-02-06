@@ -28,7 +28,7 @@ export default function BookForm({ addBook }) {
             <Formik
                 initialValues={ { title: '', body: '', rating: '' } }
                 validationSchema={ bookSchema }
-                onSubmit={ (values, actions) =>{
+                onSubmit={ (values, actions) => {
                     addBook(values)
                     // actions.resetForm()
                 } }
@@ -44,6 +44,7 @@ export default function BookForm({ addBook }) {
                         />
                         <Text style={ globalStyles.errorText }>{ formikProps.touched.title && formikProps.errors.title }</Text>
                         <TextInput
+                            multiline minheight={ 120 }
                             style={ globalStyles.input }
                             placeholder="Book Description"
                             onChangeText={ formikProps.handleChange('body') }
