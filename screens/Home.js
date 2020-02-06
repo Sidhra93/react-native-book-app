@@ -19,7 +19,7 @@ export default function Home({ navigation }) {
         setBooks((currentBooks) => {
             return [book, ...currentBooks]
         })
-        // setModalOpen(false)
+        setModalOpen(false)
     }
 
     return(
