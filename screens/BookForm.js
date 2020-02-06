@@ -3,13 +3,14 @@ import { StyleSheet, Text, View, Button, TextInput } from 'react-native'
 import { globalStyles } from '../styles/global'
 import { Formik } from 'formik'
 
-export default function BookForm() {
+export default function BookForm({ addBook }) {
     return (
         <View style={ globalStyles.container }>
             <Formik
                 initialValues={ { title: '', body: '', rating: '' } }
-                onSubmit={ (values) =>{
-                    console.log(values)
+                onSubmit={ (values, actions) =>{
+                    addBook(values)
+                    actions.resetForm()
                 } }
             >
                 { (formikProps) => (
@@ -22,7 +23,7 @@ export default function BookForm() {
                         />
                         <TextInput
                             style={ globalStyles.input }
-                            placeholder="Book Body"
+                            placeholder="Book Description"
                             onChangeText={ formikProps.handleChange('body') }
                             value={ formikProps.values.body }
                         />
